@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- react cdn -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- styless -->
+    <link rel="stylesheet" href="./styles.css">
+    <title>Resume</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    const Title = ({name})=><h1 className="heading">{name}</h1>
+    const Heading = ({heading})=><h3>{heading}</h3>
+    const Description = ({email,phone,githubURL})=><div className="container"><p>{email}</p><p>{phone}</p><p>{githubURL}</p></div>
+    const Line = ()=><hr className="container" />
+    const CarrierObjective = ({text})=><div className = "container justify"><Heading heading="Carrier Objective:"/><p>{text}</p></div>
+    const TableHead = ({text})=><th>{text}</th>
+    const TableData = ({text})=><td>{text}</td>
+    
+    const EducationQualifications = ()=><div className="container ">
+        <Heading heading="Education Qualifications:"/>
+        <table className="table">
+        <thead>
+            <tr>
+                <TableHead text="Qualification"/>
+                <TableHead text="Specilization"/>
+                <TableHead text="Institution"/>
+                <TableHead text="Year of Passing"/>
+                <TableHead text="Board/University"/>
+                <TableHead text="Percentage/GPA"/>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <TableData text="B-tech" />
+                <TableData text="ECE" />
+                <TableData text="Jain University" />
+                <TableData text="2020" />
+                <TableData text="Jain University" />
+                <TableData text="7.0" />
+            </tr>
+            <tr>
+                <TableData text="Intermediate" />
+                <TableData text="MPC" />
+                <TableData text="Narayana Jr. College" />
+                <TableData text="2016" />
+                <TableData text="AP State Board" />
+                <TableData text="91.8" />
+            </tr>
+            <tr>
+                <TableData text="10th Class" />
+                <TableData text="General" />
+                <TableData text="Montessori Smart School" />
+                <TableData text="2014" />
+                <TableData text="AP State Board" />
+                <TableData text="9.0" />
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    const Skill = ({catogery,skills})=><div className=""><p><strong>{catogery}</strong>  {skills}</p></div>
+    const KnownSkills = ()=>{
+        return(<div className="container">
+            <Heading heading="Skills:"/>
+            <Skill catogery="Programming Languages:" skills = "C, C++, JavaScript, Python"/>
+            <Skill catogery="Web Technologies:" skills = "HTML, CSS, JavaScript, NodeJS, ExpressJS, BootStrap, Jquery, React"/>
+            <Skill catogery="Data Bases:" skills = "SQL, DBMS, SQL Server, MongoDB"/>
+        </div>)
+    }
+    const SingleSkill = ({text})=><li>{text}</li>
+    const Projects = ()=>{
+        return (
+            <div className="container">
+                <Heading heading="Projects:"/>
+                <ol>
+                    <SingleSkill text="Desgin and Implementation of Dual-H Shaped slotted Antena for 5G applications" />
+                    <SingleSkill text="Recipi App"/>
+                    <SingleSkill text="Covid 19 Tracker"/>
+                    <SingleSkill text="News App"/>
+                    <SingleSkill text="Weather App"/>
+                    <SingleSkill text="Hangman Game"/>
+                </ol>
+            </div>
+        )
+    }   
+    const Achivements = ({text})=>{
+        return(
+            <div className="container">
+                <Heading heading="Achivements/Extacircular Activities:"/>
+                <ul>
+                    <SingleSkill text="Achived Gold medal in Drawing competion" />
+                    <SingleSkill text="Runnerup in Contest conducted by GUVI"/>
+                    <SingleSkill text="Playing Lead role in Organising Department Cultural Activities"/>
+                    <SingleSkill text="Attended Workshop conducted by Asus"/>
+                    <SingleSkill text="Playing Badmittion"/>
+                </ul>
+            </div>
+        )
+    }
+    const Declaration = ()=>{
+        return(
+            <div className="container">
+                <Heading heading="Declaration:"/>
+                <p>I hereby declare that all the above information id true to best of my knowledge</p>
+            </div>
+        )
+    }
+    const App = ()=>{
+        return (
+            <div className="mt-5 mb-5" >
+                <Title name="Visshnnu Tejaa"/>
+                <Description email="jonny@gmail.com" phone="999-999-9999" githubURL="https://github.com/visshnnu-tejaa-98" />
+                <Line />
+                <CarrierObjective text = "To begin carrier with the organisation that offers challenging roles and learning oppurtunities for becomining a dynamic and competent management professional and glow in carrier."/>
+                <Line />
+                <EducationQualifications />
+                <Line />
+                <KnownSkills />
+                <Line />
+                <Projects />
+                <Line />
+                <Achivements />
+                <Line />
+                <Declaration />
+            </div>
+        )
+    }
+    ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+
+</body>
+</html>
